@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El Profe Nelson IA</title>
+<title>El Profe Nelson IA - Plataforma</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -24,9 +24,11 @@ section{padding:100px 20px;max-width:1100px;margin:auto}
 h2{font-family:'Orbitron';color:#00e0ff;margin-bottom:20px}
 
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:rgba(255,255,255,0.05);padding:20px;border-radius:15px;transition:.3s}
+.card{background:rgba(255,255,255,0.05);padding:20px;border-radius:15px;transition:.3s;cursor:pointer}
 .card:hover{transform:scale(1.05);box-shadow:0 0 25px #00c3ff}
-.card a{color:white;text-decoration:none}
+
+/* PANEL CURSO */
+.panel{display:none}
 
 /* CHAT */
 .chat{position:fixed;bottom:20px;right:20px;width:320px;background:#111;border-radius:15px;box-shadow:0 0 20px #00c3ff;overflow:hidden}
@@ -54,29 +56,38 @@ footer{text-align:center;padding:20px;background:#05050a}
 <section class="hero" id="inicio">
 <div>
 <h1>Plataforma IA Educativa</h1>
-<p>Aprende IA por niveles 🚀</p>
-<a href="#cursos" class="btn">Entrar a cursos</a>
+<p>Aprende, practica y domina IA 🚀</p>
+<a href="#cursos" class="btn">Entrar</a>
 </div>
 </section>
 
 <section id="cursos">
-<h2>🎓 Cursos por grado</h2>
+<h2>🎓 Cursos</h2>
 <div class="cards">
-<div class="card"><a href="grado6.html">Grado 6°</a></div>
-<div class="card"><a href="grado7.html">Grado 7°</a></div>
-<div class="card"><a href="grado8.html">Grado 8°</a></div>
-<div class="card"><a href="grado9.html">Grado 9°</a></div>
-<div class="card"><a href="grado10.html">Grado 10°</a></div>
-<div class="card"><a href="grado11.html">Grado 11°</a></div>
+<div class="card" onclick="abrirCurso('6')">Grado 6°</div>
+<div class="card" onclick="abrirCurso('7')">Grado 7°</div>
+<div class="card" onclick="abrirCurso('8')">Grado 8°</div>
+<div class="card" onclick="abrirCurso('9')">Grado 9°</div>
+<div class="card" onclick="abrirCurso('10')">Grado 10°</div>
+<div class="card" onclick="abrirCurso('11')">Grado 11°</div>
 </div>
 </section>
 
-<!-- CHAT REAL (SIMULADO LISTO PARA API) -->
+<section id="panel" class="panel">
+<h2 id="tituloCurso"></h2>
+<h3>📚 Clases</h3>
+<ul id="clases"></ul>
+
+<h3>📥 Tareas</h3>
+<ul id="tareas"></ul>
+</section>
+
+<!-- CHAT -->
 <div class="chat">
-<div class="chat-header">🤖 Asistente IA</div>
+<div class="chat-header">🤖 IA Educativa</div>
 <div class="chat-body" id="chatBody"></div>
 <div class="chat-input">
-<input id="chatInput" placeholder="Pregunta algo...">
+<input id="chatInput" placeholder="Pregunta sobre la clase...">
 <button onclick="sendMessage()">➤</button>
 </div>
 </div>
@@ -86,30 +97,57 @@ footer{text-align:center;padding:20px;background:#05050a}
 </footer>
 
 <script>
-// PARTICLES
+// PARTICULAS
 const canvas=document.getElementById('bg');
 const ctx=canvas.getContext('2d');
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 let particles=[];
-for(let i=0;i<60;i++){particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2})}
+for(let i=0;i<70;i++){particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2})}
 function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#00c3ff';particles.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();p.y+=0.3;if(p.y>canvas.height)p.y=0});requestAnimationFrame(draw)}
 draw();
 
-// CHAT (LISTO PARA API REAL)
-async function sendMessage(){
+// CURSOS DINAMICOS
+function abrirCurso(grado){
+document.getElementById('panel').style.display='block';
+document.getElementById('tituloCurso').innerText='Grado '+grado;
+
+let clasesHTML='';
+for(let i=1;i<=3;i++){
+clasesHTML+=`<li>Clase ${i} - Tema IA ${grado}</li>`;
+}
+
+document.getElementById('clases').innerHTML=clasesHTML;
+
+document.getElementById('tareas').innerHTML=`
+<li><a href='#'>Actividad 1</a></li>
+<li><a href='#'>Actividad 2</a></li>
+`;
+
+window.scrollTo({top:document.getElementById('panel').offsetTop,behavior:'smooth'});
+}
+
+// CHAT SIMULADO INTELIGENTE
+function sendMessage(){
 let input=document.getElementById('chatInput');
 let body=document.getElementById('chatBody');
 let userMsg=input.value;
 if(!userMsg)return;
-body.innerHTML+=`<p><b>Tú:</b> ${userMsg}</p>`;
-input.value="";
-body.scrollTop=body.scrollHeight;
 
-// RESPUESTA SIMULADA (AQUÍ VA API REAL)
-let respuesta="(Conecta aquí una API de IA para respuestas reales)";
+body.innerHTML+=`<p><b>Tú:</b> ${userMsg}</p>`;
+
+let respuesta="";
+
+if(userMsg.toLowerCase().includes('ia')){
+respuesta="La IA permite automatizar tareas y mejorar el aprendizaje.";
+}else if(userMsg.toLowerCase().includes('tarea')){
+respuesta="Revisa la sección de tareas del curso que abriste.";
+}else{
+respuesta="Sigue aprendiendo, vas muy bien 🚀";
+}
 
 body.innerHTML+=`<p><b>IA:</b> ${respuesta}</p>`;
+input.value="";
 body.scrollTop=body.scrollHeight;
 }
 </script>
