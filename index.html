@@ -4,197 +4,182 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>El Profe Nelson IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-    background:#0a0a0f;
-    color:white;
-    scroll-behavior:smooth;
+background:#0a0a0f;
+color:white;
+font-family:'Inter',sans-serif;
+overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* PARTICLES */
+canvas{
+position:fixed;
+top:0;left:0;
+z-index:-1;
+}
+
+/* NAV */
 nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    background:rgba(0,0,0,0.7);
-    backdrop-filter:blur(10px);
-    padding:15px;
-    display:flex;
-    justify-content:space-between;
-    z-index:1000;
+position:fixed;width:100%;top:0;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(15px);
+padding:15px 30px;
+display:flex;justify-content:space-between;z-index:1000
 }
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 10px;
-    transition:0.3s;
-}
-
-nav a:hover{
-    color:#00c3ff;
-}
+nav a{color:white;text-decoration:none;margin:0 10px;transition:.3s}
+nav a:hover{color:#00e0ff}
 
 /* HERO */
 .hero{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(135deg,#0a0a0f,#1a1a40);
+height:100vh;
+display:flex;align-items:center;justify-content:center;text-align:center;
 }
-
 .hero h1{
-    font-size:3rem;
-    margin-bottom:20px;
+font-family:'Orbitron',sans-serif;
+font-size:3.5rem;
+background:linear-gradient(90deg,#00c3ff,#8a2be2);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:glowText 3s infinite alternate;
+}
+@keyframes glowText{
+from{text-shadow:0 0 10px #00c3ff}
+to{text-shadow:0 0 25px #8a2be2}
 }
 
-.hero button{
-    padding:15px 30px;
-    border:none;
-    background:#00c3ff;
-    color:black;
-    font-weight:bold;
-    cursor:pointer;
-    border-radius:10px;
-    transition:0.3s;
-}
+.hero p{opacity:.8;margin:20px 0}
 
-.hero button:hover{
-    transform:scale(1.1);
-}
-
-/* SECCIONES */
-section{
-    padding:80px 20px;
-    max-width:1000px;
-    margin:auto;
-}
-
-h2{
-    margin-bottom:20px;
-    color:#00c3ff;
-}
-
-/* CARDS */
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:#111;
-    padding:20px;
-    border-radius:15px;
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 0 20px #00c3ff;
-}
-
-/* BOTONES */
 .btn{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 20px;
-    background:#00c3ff;
-    color:black;
-    text-decoration:none;
-    border-radius:8px;
+padding:14px 30px;
+border-radius:12px;
+background:linear-gradient(90deg,#00c3ff,#8a2be2);
+color:white;text-decoration:none;
+transition:.3s;
+box-shadow:0 0 20px rgba(0,195,255,.6);
+}
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 40px rgba(0,195,255,1);
 }
 
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:20px;
-    background:#05050a;
+section{padding:100px 20px;max-width:1100px;margin:auto}
+h2{
+font-family:'Orbitron',sans-serif;
+color:#00e0ff;margin-bottom:20px
 }
+
+.cards{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px
+}
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:20px;
+backdrop-filter:blur(12px);
+transition:.4s;
+}
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 0 30px #00c3ff;
+}
+
+/* CHAT BOX */
+.chat{
+position:fixed;
+bottom:20px;right:20px;
+width:280px;
+background:#111;
+border-radius:15px;
+padding:15px;
+box-shadow:0 0 20px #00c3ff;
+}
+.chat input{
+width:100%;padding:10px;margin-top:10px;border:none;border-radius:8px
+}
+
+footer{text-align:center;padding:20px;background:#05050a;opacity:.7}
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<canvas id="bg"></canvas>
+
 <nav>
-    <div><strong>Profe Nelson IA</strong></div>
-    <div>
-        <a href="#inicio">Inicio</a>
-        <a href="#ia">IA</a>
-        <a href="#recursos">Recursos</a>
-        <a href="#contacto">Contacto</a>
-    </div>
+<div><strong>Profe Nelson IA</strong></div>
+<div>
+<a href="#inicio">Inicio</a>
+<a href="#ia">IA</a>
+<a href="#recursos">Recursos</a>
+<a href="#contacto">Contacto</a>
+</div>
 </nav>
 
-<!-- HERO -->
 <section class="hero" id="inicio">
-    <div>
-        <h1>Aprende Inteligencia Artificial Fácil</h1>
-        <p>Para docentes y estudiantes 🚀</p>
-        <button onclick="scrollToSection('ia')">Empezar</button>
-    </div>
+<div>
+<h1>Domina la Inteligencia Artificial</h1>
+<p>Plataforma educativa del futuro 🚀</p>
+<a href="#ia" class="btn">Explorar</a>
+</div>
 </section>
 
-<!-- IA -->
 <section id="ia">
-    <h2>🤖 IA para Docentes</h2>
-    <p>
-        Aprende a usar inteligencia artificial para clases, contenido, evaluaciones
-        y automatización educativa.
-    </p>
+<h2>🤖 IA para Docentes</h2>
+<p>Automatiza clases, crea contenido y transforma la educación.</p>
 </section>
 
-<!-- RECURSOS -->
 <section id="recursos">
-    <h2>📚 Recursos Educativos</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Prompts para clases</h3>
-            <p>Listos para usar con IA</p>
-            <a href="#" class="btn">Ver más</a>
-        </div>
-
-        <div class="card">
-            <h3>Actividades</h3>
-            <p>Guías listas para estudiantes</p>
-            <a href="#" class="btn">Ver más</a>
-        </div>
-
-        <div class="card">
-            <h3>Automatización</h3>
-            <p>Optimiza tu tiempo como docente</p>
-            <a href="#" class="btn">Ver más</a>
-        </div>
-    </div>
+<h2>📚 Recursos</h2>
+<div class="cards">
+<div class="card"><h3>Prompts</h3><p>Listos para usar</p></div>
+<div class="card"><h3>Guías</h3><p>Material práctico</p></div>
+<div class="card"><h3>Automatización</h3><p>Ahorra tiempo</p></div>
+</div>
 </section>
 
-<!-- CONTACTO -->
 <section id="contacto">
-    <h2>📩 Contacto</h2>
-    <p>¿Quieres aprender más o colaborar?</p>
-    <a class="btn" href="#">Escríbeme</a>
+<h2>📩 Contacto</h2>
+<a class="btn" href="#">Escríbeme</a>
 </section>
 
-<!-- FOOTER -->
+<div class="chat">
+<strong>Asistente IA</strong>
+<input placeholder="Pregunta algo...">
+</div>
+
 <footer>
-    <p>© 2026 El Profe Nelson IA</p>
+<p>© 2026 El Profe Nelson IA</p>
 </footer>
 
 <script>
-function scrollToSection(id){
-    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+// partículas
+const canvas=document.getElementById('bg');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+for(let i=0;i<80;i++){
+particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2})
 }
+
+function draw(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle='#00c3ff';
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fill();
+p.y+=0.3;
+if(p.y>canvas.height)p.y=0;
+});
+requestAnimationFrame(draw);
+}
+draw();
 </script>
 
 </body>
