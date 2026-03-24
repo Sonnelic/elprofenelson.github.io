@@ -3,153 +3,162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El Profe Nelson IA - Plataforma</title>
+<title>El Profe Nelson IA</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a0f;color:white;font-family:'Inter',sans-serif}
-canvas{position:fixed;top:0;left:0;z-index:-1}
+body{
+background: radial-gradient(circle at top, #1a1a40, #0a0a0f 60%);
+color:white;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+overflow-x:hidden;
+}
 
-nav{position:fixed;width:100%;top:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(15px);padding:15px 30px;display:flex;justify-content:space-between;z-index:1000}
-nav a{color:white;text-decoration:none;margin:0 10px}
+/* NAV */
+nav{
+position:fixed;width:100%;top:0;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(12px);
+padding:15px 30px;
+display:flex;justify-content:space-between;z-index:1000
+}
+nav a{color:white;text-decoration:none;margin:0 10px;transition:.3s}
 nav a:hover{color:#00e0ff}
 
-.hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}
-.hero h1{font-family:'Orbitron';font-size:3.5rem;background:linear-gradient(90deg,#00c3ff,#8a2be2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+/* HERO */
+.hero{
+height:100vh;
+display:flex;align-items:center;justify-content:center;text-align:center;
+background: radial-gradient(circle at center, #2a0050, #0a0a0f);
+}
+.hero h1{
+font-family:'Orbitron',sans-serif;
+font-size:3.2rem;
+background:linear-gradient(90deg,#00c3ff,#8a2be2);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:20px
+}
+.hero p{opacity:.8;margin-bottom:20px}
 
-.btn{padding:12px 25px;border-radius:10px;background:linear-gradient(90deg,#00c3ff,#8a2be2);color:white;text-decoration:none;display:inline-block;margin-top:15px}
+.btn{
+padding:14px 30px;
+border-radius:12px;
+background:linear-gradient(90deg,#00c3ff,#8a2be2);
+color:white;
+text-decoration:none;
+transition:.3s;
+box-shadow:0 0 15px rgba(0,195,255,.5);
+}
+.btn:hover{
+transform:scale(1.08);
+box-shadow:0 0 25px rgba(0,195,255,1);
+}
 
-section{padding:100px 20px;max-width:1100px;margin:auto}
-h2{font-family:'Orbitron';color:#00e0ff;margin-bottom:20px}
+section{padding:90px 20px;max-width:1100px;margin:auto}
+h2{
+font-family:'Orbitron',sans-serif;
+color:#00e0ff;margin-bottom:20px
+}
 
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:rgba(255,255,255,0.05);padding:20px;border-radius:15px;transition:.3s;cursor:pointer}
-.card:hover{transform:scale(1.05);box-shadow:0 0 25px #00c3ff}
+.cards{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px
+}
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;
+border-radius:18px;
+backdrop-filter:blur(10px);
+transition:.4s;
+box-shadow:0 0 10px rgba(0,0,0,0.5)
+}
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 0 25px #00c3ff;
+}
 
-/* PANEL CURSO */
-.panel{display:none}
+footer{
+text-align:center;padding:25px;background:#05050a;opacity:.7
+}
 
-/* CHAT */
-.chat{position:fixed;bottom:20px;right:20px;width:320px;background:#111;border-radius:15px;box-shadow:0 0 20px #00c3ff;overflow:hidden}
-.chat-header{background:#00c3ff;padding:10px;color:black;font-weight:bold}
-.chat-body{height:220px;overflow-y:auto;padding:10px;font-size:14px}
-.chat-input{display:flex}
-.chat-input input{flex:1;padding:10px;border:none}
-.chat-input button{padding:10px;border:none;background:#00c3ff}
+/* animación entrada */
+.fade{
+opactiy:0;
+transform:translateY(20px);
+animation:fadeUp 1s forwards;
+}
+@keyframes fadeUp{
+to{opacity:1;transform:translateY(0)}
+}
 
-footer{text-align:center;padding:20px;background:#05050a}
 </style>
 </head>
 
 <body>
-<canvas id="bg"></canvas>
 
 <nav>
 <div><strong>Profe Nelson IA</strong></div>
 <div>
 <a href="#inicio">Inicio</a>
-<a href="#cursos">Cursos</a>
+<a href="#ia">IA</a>
+<a href="#recursos">Recursos</a>
+<a href="#contacto">Contacto</a>
 </div>
 </nav>
 
 <section class="hero" id="inicio">
-<div>
-<h1>Plataforma IA Educativa</h1>
-<p>Aprende, practica y domina IA 🚀</p>
-<a href="#cursos" class="btn">Entrar</a>
+<div class="fade">
+<h1>Aprende Inteligencia Artificial</h1>
+<p>Educación del futuro para docentes y estudiantes 🚀</p>
+<a href="#ia" class="btn">Empezar</a>
 </div>
 </section>
 
-<section id="cursos">
-<h2>🎓 Cursos</h2>
+<section id="ia" class="fade">
+<h2>🤖 IA para Docentes</h2>
+<p>Transforma tus clases con herramientas de inteligencia artificial y automatización educativa.</p>
+</section>
+
+<section id="recursos" class="fade">
+<h2>📚 Recursos Educativos</h2>
 <div class="cards">
-<div class="card" onclick="abrirCurso('6')">Grado 6°</div>
-<div class="card" onclick="abrirCurso('7')">Grado 7°</div>
-<div class="card" onclick="abrirCurso('8')">Grado 8°</div>
-<div class="card" onclick="abrirCurso('9')">Grado 9°</div>
-<div class="card" onclick="abrirCurso('10')">Grado 10°</div>
-<div class="card" onclick="abrirCurso('11')">Grado 11°</div>
+<div class="card">
+<h3>Prompts IA</h3>
+<p>Listos para usar en clase</p>
+<a href="#" class="btn">Ver</a>
+</div>
+<div class="card">
+<h3>Guías</h3>
+<p>Material educativo práctico</p>
+<a href="#" class="btn">Ver</a>
+</div>
+<div class="card">
+<h3>Automatización</h3>
+<p>Optimiza tu tiempo docente</p>
+<a href="#" class="btn">Ver</a>
+</div>
 </div>
 </section>
 
-<section id="panel" class="panel">
-<h2 id="tituloCurso"></h2>
-<h3>📚 Clases</h3>
-<ul id="clases"></ul>
-
-<h3>📥 Tareas</h3>
-<ul id="tareas"></ul>
+<section id="contacto" class="fade">
+<h2>📩 Contacto</h2>
+<p>Conecta conmigo para aprender IA</p>
+<a class="btn" href="#">Escríbeme</a>
 </section>
-
-<!-- CHAT -->
-<div class="chat">
-<div class="chat-header">🤖 IA Educativa</div>
-<div class="chat-body" id="chatBody"></div>
-<div class="chat-input">
-<input id="chatInput" placeholder="Pregunta sobre la clase...">
-<button onclick="sendMessage()">➤</button>
-</div>
-</div>
 
 <footer>
 <p>© 2026 El Profe Nelson IA</p>
 </footer>
 
 <script>
-// PARTICULAS
-const canvas=document.getElementById('bg');
-const ctx=canvas.getContext('2d');
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-let particles=[];
-for(let i=0;i<70;i++){particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2})}
-function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#00c3ff';particles.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();p.y+=0.3;if(p.y>canvas.height)p.y=0});requestAnimationFrame(draw)}
-draw();
-
-// CURSOS DINAMICOS
-function abrirCurso(grado){
-document.getElementById('panel').style.display='block';
-document.getElementById('tituloCurso').innerText='Grado '+grado;
-
-let clasesHTML='';
-for(let i=1;i<=3;i++){
-clasesHTML+=`<li>Clase ${i} - Tema IA ${grado}</li>`;
-}
-
-document.getElementById('clases').innerHTML=clasesHTML;
-
-document.getElementById('tareas').innerHTML=`
-<li><a href='#'>Actividad 1</a></li>
-<li><a href='#'>Actividad 2</a></li>
-`;
-
-window.scrollTo({top:document.getElementById('panel').offsetTop,behavior:'smooth'});
-}
-
-// CHAT SIMULADO INTELIGENTE
-function sendMessage(){
-let input=document.getElementById('chatInput');
-let body=document.getElementById('chatBody');
-let userMsg=input.value;
-if(!userMsg)return;
-
-body.innerHTML+=`<p><b>Tú:</b> ${userMsg}</p>`;
-
-let respuesta="";
-
-if(userMsg.toLowerCase().includes('ia')){
-respuesta="La IA permite automatizar tareas y mejorar el aprendizaje.";
-}else if(userMsg.toLowerCase().includes('tarea')){
-respuesta="Revisa la sección de tareas del curso que abriste.";
-}else{
-respuesta="Sigue aprendiendo, vas muy bien 🚀";
-}
-
-body.innerHTML+=`<p><b>IA:</b> ${respuesta}</p>`;
-input.value="";
-body.scrollTop=body.scrollHeight;
-}
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+anchor.addEventListener('click',function(e){
+e.preventDefault();
+document.querySelector(this.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+});
+});
 </script>
 
 </body>
