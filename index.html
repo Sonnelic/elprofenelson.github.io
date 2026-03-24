@@ -3,35 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El Profe Nelson IA</title>
+<title>El Profe Nelson – Tecnología e IA Fácil</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Orbitron', sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron',sans-serif;}
 
-body{
-    background:#050508;
-    color:white;
-    overflow-x:hidden;
-}
+body{background:#050508;color:white;overflow-x:hidden;}
 
-/* RED NEURONAL CANVAS */
+/* RED NEURONAL */
 #network{
     position:fixed;
-    top:0;
-    left:0;
     width:100%;
     height:100%;
     z-index:-2;
 }
 
-/* CIRCUITOS */
+/* GRID CIRCUITOS */
 body::before{
     content:"";
     position:fixed;
@@ -92,17 +81,19 @@ nav a:hover{
 }
 
 .hero h1{
-    font-size:3rem;
+    font-size:2.8rem;
     text-shadow:0 0 25px #3a4dff;
 }
 
+.hero p{margin:15px 0;opacity:0.85;}
+
 .hero button{
-    margin-top:20px;
-    padding:15px 30px;
+    margin:10px;
+    padding:12px 25px;
     border:none;
     background:#3a4dff;
     color:white;
-    border-radius:12px;
+    border-radius:10px;
     box-shadow:0 0 20px #3a4dff;
     cursor:pointer;
 }
@@ -115,6 +106,7 @@ section{
 }
 
 h2{
+    margin-bottom:20px;
     color:#9aa7ff;
     text-shadow:0 0 10px #9aa7ff;
 }
@@ -128,16 +120,15 @@ h2{
 
 .card{
     background:rgba(255,255,255,0.03);
-    padding:25px;
-    border-radius:20px;
-    transition:0.4s;
-    backdrop-filter:blur(10px);
+    padding:20px;
+    border-radius:15px;
+    transition:0.3s;
     border:1px solid rgba(255,255,255,0.08);
 }
 
 .card:hover{
     transform:translateY(-10px);
-    box-shadow:0 0 25px #3a4dff;
+    box-shadow:0 0 20px #3a4dff;
 }
 
 /* SCROLL */
@@ -155,7 +146,6 @@ h2{
 footer{
     text-align:center;
     padding:30px;
-    background:#05050a;
 }
 </style>
 </head>
@@ -169,73 +159,110 @@ footer{
     <div>
         <a href="#inicio">Inicio</a>
         <a href="#ia">IA</a>
-        <a href="#recursos">Recursos</a>
+        <a href="#tecnologia">Tecnología</a>
+        <a href="#python">Python</a>
+        <a href="#blog">Blog</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#sobre">Sobre mí</a>
     </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="inicio">
     <div>
-        <h1>Red Neuronal Activa</h1>
-        <p>Educación + IA + Futuro 🚀</p>
-        <button onclick="scrollToSection('ia')">Entrar</button>
+        <h1>Tecnología e IA Fácil</h1>
+        <p>Aprende tecnología, inteligencia artificial y herramientas digitales de forma fácil, práctica y útil para la vida real.</p>
+        <button>Aprender IA desde cero</button>
+        <button>Ver tutoriales</button>
+        <button>Clases conmigo</button>
     </div>
 </section>
 
+<!-- IA -->
 <section id="ia" class="fade">
-    <h2>🤖 IA para Docentes</h2>
-    <p>Transforma tu enseñanza con inteligencia artificial.</p>
+    <h2>🧠 Aprender IA</h2>
+    <div class="cards">
+        <div class="card">¿Qué es la IA explicado fácil?</div>
+        <div class="card">Cómo usar IA en el colegio</div>
+        <div class="card">Cómo resumir videos con IA</div>
+    </div>
 </section>
 
-<section id="recursos" class="fade">
-    <h2>📚 Recursos</h2>
+<!-- TECNOLOGIA -->
+<section id="tecnologia" class="fade">
+    <h2>💻 Tecnología Fácil</h2>
     <div class="cards">
-        <div class="card">
-            <h3>Prompts</h3>
-        </div>
-        <div class="card">
-            <h3>Clases IA</h3>
-        </div>
-        <div class="card">
-            <h3>Automatización</h3>
-        </div>
+        <div class="card">Trucos de computador</div>
+        <div class="card">Solución de errores</div>
+        <div class="card">Consejos prácticos</div>
     </div>
+</section>
+
+<!-- PYTHON -->
+<section id="python" class="fade">
+    <h2>🐍 Python Básico</h2>
+    <div class="cards">
+        <div class="card">Clases simples</div>
+        <div class="card">Ejercicios</div>
+        <div class="card">Explicaciones claras</div>
+    </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" class="fade">
+    <h2>🎥 Blog / Contenido</h2>
+    <div class="cards">
+        <div class="card">Cómo usar IA sin pagar</div>
+        <div class="card">Qué es ChatGPT fácil</div>
+        <div class="card">Cómo mejorar tu PC</div>
+        <div class="card">5 usos de IA para estudiantes</div>
+    </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="fade">
+    <h2>💰 Servicios</h2>
+    <div class="cards">
+        <div class="card">Clases de informática</div>
+        <div class="card">Asesorías</div>
+        <div class="card">Instalación de IA</div>
+    </div>
+</section>
+
+<!-- SOBRE MI -->
+<section id="sobre" class="fade">
+    <h2>👨‍🏫 Sobre mí</h2>
+    <p>Soy docente con experiencia en tecnología e informática. Enseño herramientas digitales, inteligencia artificial y programación de forma práctica y sencilla.</p>
 </section>
 
 <footer>
-    <p>© 2026 Profe Nelson IA</p>
+    <p>© 2026 El Profe Nelson</p>
 </footer>
 
 <script>
 // SCROLL
-function scrollToSection(id){
-    document.getElementById(id).scrollIntoView({behavior:'smooth'});
-}
-
-// ANIMACIÓN SCROLL
-const faders = document.querySelectorAll('.fade');
-window.addEventListener('scroll', () => {
-    faders.forEach(el => {
-        if(el.getBoundingClientRect().top < window.innerHeight - 100){
+const faders=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+    faders.forEach(el=>{
+        if(el.getBoundingClientRect().top<window.innerHeight-100){
             el.classList.add('show');
         }
     });
 });
 
 // RED NEURONAL
-const canvas = document.getElementById("network");
-const ctx = canvas.getContext("2d");
+const canvas=document.getElementById("network");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let nodes = [];
-
-for(let i=0;i<80;i++){
+let nodes=[];
+for(let i=0;i<70;i++){
     nodes.push({
-        x: Math.random()*canvas.width,
-        y: Math.random()*canvas.height,
-        vx: (Math.random()-0.5)*1,
-        vy: (Math.random()-0.5)*1
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        vx:(Math.random()-0.5),
+        vy:(Math.random()-0.5)
     });
 }
 
@@ -243,8 +270,8 @@ function draw(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
 
     nodes.forEach(n=>{
-        n.x += n.vx;
-        n.y += n.vy;
+        n.x+=n.vx;
+        n.y+=n.vy;
 
         if(n.x<0||n.x>canvas.width) n.vx*=-1;
         if(n.y<0||n.y>canvas.height) n.vy*=-1;
@@ -257,11 +284,11 @@ function draw(){
 
     for(let i=0;i<nodes.length;i++){
         for(let j=i+1;j<nodes.length;j++){
-            let dx = nodes[i].x - nodes[j].x;
-            let dy = nodes[i].y - nodes[j].y;
-            let dist = Math.sqrt(dx*dx + dy*dy);
+            let dx=nodes[i].x-nodes[j].x;
+            let dy=nodes[i].y-nodes[j].y;
+            let dist=Math.sqrt(dx*dx+dy*dy);
 
-            if(dist < 120){
+            if(dist<120){
                 ctx.beginPath();
                 ctx.moveTo(nodes[i].x,nodes[i].y);
                 ctx.lineTo(nodes[j].x,nodes[j].y);
@@ -273,12 +300,11 @@ function draw(){
 
     requestAnimationFrame(draw);
 }
-
 draw();
 
 window.addEventListener("resize",()=>{
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width=window.innerWidth;
+    canvas.height=window.innerHeight;
 });
 </script>
 
