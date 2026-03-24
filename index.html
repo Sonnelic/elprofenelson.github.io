@@ -16,9 +16,28 @@
 }
 
 body{
-    background: radial-gradient(circle at top, #0a0a0f, #050508);
+    background:#050508;
     color:white;
-    scroll-behavior:smooth;
+    overflow-x:hidden;
+}
+
+/* FONDO CIRCUITOS */
+body::before{
+    content:"";
+    position:fixed;
+    width:200%;
+    height:200%;
+    background-image:
+    linear-gradient(#4b5cff33 1px, transparent 1px),
+    linear-gradient(90deg, #4b5cff33 1px, transparent 1px);
+    background-size:40px 40px;
+    animation: moveGrid 20s linear infinite;
+    z-index:-1;
+}
+
+@keyframes moveGrid{
+    0%{transform:translate(0,0);}
+    100%{transform:translate(-40px,-40px);}
 }
 
 /* NAVBAR */
@@ -26,7 +45,7 @@ nav{
     position:fixed;
     width:100%;
     top:0;
-    background:rgba(0,0,0,0.6);
+    background:rgba(0,0,0,0.7);
     backdrop-filter:blur(12px);
     padding:15px;
     display:flex;
@@ -42,20 +61,20 @@ nav a{
 }
 
 nav a:hover{
-    color:#8f9cff;
-    text-shadow:0 0 10px #8f9cff;
+    color:#9aa7ff;
+    text-shadow:0 0 12px #9aa7ff;
 }
 
-/* HERO SUAVE Y PRO */
+/* HERO */
 .hero{
     height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
-    background: linear-gradient(270deg,#0a0a0f,#1a1a40,#4b5cff,#0a0a0f);
+    background: linear-gradient(270deg,#050508,#1a1a40,#3a4dff,#050508);
     background-size:400% 400%;
-    animation: gradientMove 10s ease infinite;
+    animation: gradientMove 12s ease infinite;
 }
 
 @keyframes gradientMove {
@@ -67,7 +86,7 @@ nav a:hover{
 .hero h1{
     font-size:3rem;
     margin-bottom:20px;
-    text-shadow:0 0 20px #4b5cff;
+    text-shadow:0 0 25px #3a4dff;
 }
 
 .hero p{
@@ -78,18 +97,18 @@ nav a:hover{
 .hero button{
     padding:15px 30px;
     border:none;
-    background:#4b5cff;
+    background:#3a4dff;
     color:white;
     font-weight:bold;
     cursor:pointer;
     border-radius:12px;
     transition:0.3s;
-    box-shadow:0 0 15px #4b5cff;
+    box-shadow:0 0 20px #3a4dff;
 }
 
 .hero button:hover{
     transform:scale(1.1);
-    box-shadow:0 0 25px #4b5cff;
+    box-shadow:0 0 40px #3a4dff;
 }
 
 /* SECCIONES */
@@ -101,8 +120,8 @@ section{
 
 h2{
     margin-bottom:20px;
-    color:#8f9cff;
-    text-shadow:0 0 8px #8f9cff;
+    color:#9aa7ff;
+    text-shadow:0 0 10px #9aa7ff;
 }
 
 /* CARDS */
@@ -113,17 +132,30 @@ h2{
 }
 
 .card{
-    background:rgba(255,255,255,0.05);
+    background:rgba(255,255,255,0.03);
     padding:25px;
     border-radius:20px;
     transition:0.4s;
     backdrop-filter:blur(10px);
     border:1px solid rgba(255,255,255,0.08);
+    position:relative;
+}
+
+.card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:20px;
+    box-shadow:0 0 20px transparent;
+    transition:0.4s;
+}
+
+.card:hover::after{
+    box-shadow:0 0 25px #3a4dff;
 }
 
 .card:hover{
     transform:translateY(-10px) scale(1.03);
-    box-shadow:0 0 20px #4b5cff;
 }
 
 /* BOTONES */
@@ -131,19 +163,19 @@ h2{
     display:inline-block;
     margin-top:10px;
     padding:10px 20px;
-    background:#4b5cff;
+    background:#3a4dff;
     color:white;
     text-decoration:none;
     border-radius:10px;
-    box-shadow:0 0 10px #4b5cff;
+    box-shadow:0 0 15px #3a4dff;
     transition:0.3s;
 }
 
 .btn:hover{
-    box-shadow:0 0 20px #4b5cff;
+    box-shadow:0 0 30px #3a4dff;
 }
 
-/* ANIMACIONES SCROLL */
+/* SCROLL */
 .fade{
     opacity:0;
     transform:translateY(40px);
@@ -160,7 +192,6 @@ footer{
     text-align:center;
     padding:30px;
     background:#05050a;
-    font-size:0.9rem;
 }
 </style>
 </head>
@@ -179,8 +210,8 @@ footer{
 
 <section class="hero" id="inicio">
     <div>
-        <h1>Domina la Inteligencia Artificial</h1>
-        <p>Transforma tu forma de enseñar 🚀</p>
+        <h1>Inteligencia Artificial Futurista</h1>
+        <p>Educación + Tecnología + Futuro 🚀</p>
         <button onclick="scrollToSection('ia')">Comenzar</button>
     </div>
 </section>
@@ -188,37 +219,35 @@ footer{
 <section id="ia" class="fade">
     <h2>🤖 IA para Docentes</h2>
     <p>
-        Aprende a utilizar inteligencia artificial para crear clases,
-        actividades y automatizar tu trabajo educativo.
+        Lleva tus clases al siguiente nivel con herramientas de inteligencia artificial.
     </p>
 </section>
 
 <section id="recursos" class="fade">
-    <h2>📚 Recursos Educativos</h2>
+    <h2>📚 Recursos</h2>
     <div class="cards">
         <div class="card">
             <h3>Prompts</h3>
-            <p>Listos para usar en tus clases</p>
-            <a href="#" class="btn">Ver más</a>
+            <p>IA lista para usar</p>
+            <a href="#" class="btn">Ver</a>
         </div>
 
         <div class="card">
             <h3>Actividades</h3>
-            <p>Material listo para estudiantes</p>
-            <a href="#" class="btn">Ver más</a>
+            <p>Material educativo</p>
+            <a href="#" class="btn">Ver</a>
         </div>
 
         <div class="card">
             <h3>Automatización</h3>
-            <p>Ahorra tiempo con IA</p>
-            <a href="#" class="btn">Ver más</a>
+            <p>Ahorra tiempo</p>
+            <a href="#" class="btn">Ver</a>
         </div>
     </div>
 </section>
 
 <section id="contacto" class="fade">
     <h2>📩 Contacto</h2>
-    <p>¿Quieres aprender o colaborar?</p>
     <a class="btn" href="#">Escríbeme</a>
 </section>
 
