@@ -7,23 +7,51 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
 body{
+    background:#0a0a0f;
+    color:white;
+    scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    z-index:1000;
 background:#0a0a0f;
 color:white;
 font-family:'Inter',sans-serif;
 overflow-x:hidden;
 }
 
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+    transition:0.3s;
 /* PARTICLES */
 canvas{
 position:fixed;
 top:0;left:0;
 z-index:-1;
 }
-body{background:#0a0a0f;color:white;font-family:'Inter',sans-serif}
-canvas{position:fixed;top:0;left:0;z-index:-1}
 
+nav a:hover{
+    color:#00c3ff;
 /* NAV */
 nav{
 position:fixed;width:100%;top:0;
@@ -33,16 +61,23 @@ padding:15px 30px;
 display:flex;justify-content:space-between;z-index:1000
 }
 nav a{color:white;text-decoration:none;margin:0 10px;transition:.3s}
-nav{position:fixed;width:100%;top:0;background:rgba(0,0,0,0.5);backdrop-filter:blur(15px);padding:15px 30px;display:flex;justify-content:space-between;z-index:1000}
-nav a{color:white;text-decoration:none;margin:0 10px}
 nav a:hover{color:#00e0ff}
 
 /* HERO */
 .hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(135deg,#0a0a0f,#1a1a40);
 height:100vh;
 display:flex;align-items:center;justify-content:center;text-align:center;
 }
+
 .hero h1{
+    font-size:3rem;
+    margin-bottom:20px;
 font-family:'Orbitron',sans-serif;
 font-size:3.5rem;
 background:linear-gradient(90deg,#00c3ff,#8a2be2);
@@ -50,15 +85,31 @@ background:linear-gradient(90deg,#00c3ff,#8a2be2);
 -webkit-text-fill-color:transparent;
 animation:glowText 3s infinite alternate;
 }
+
+.hero button{
+    padding:15px 30px;
+    border:none;
+    background:#00c3ff;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:10px;
+    transition:0.3s;
 @keyframes glowText{
 from{text-shadow:0 0 10px #00c3ff}
 to{text-shadow:0 0 25px #8a2be2}
 }
 
+.hero button:hover{
+    transform:scale(1.1);
+}
 .hero p{opacity:.8;margin:20px 0}
-.hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center}
-.hero h1{font-family:'Orbitron';font-size:3.5rem;background:linear-gradient(90deg,#00c3ff,#8a2be2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 
+/* SECCIONES */
+section{
+    padding:80px 20px;
+    max-width:1000px;
+    margin:auto;
 .btn{
 padding:14px 30px;
 border-radius:12px;
@@ -71,29 +122,51 @@ box-shadow:0 0 20px rgba(0,195,255,.6);
 transform:scale(1.1);
 box-shadow:0 0 40px rgba(0,195,255,1);
 }
-.btn{padding:12px 25px;border-radius:10px;background:linear-gradient(90deg,#00c3ff,#8a2be2);color:white;text-decoration:none;display:inline-block;margin-top:15px}
 
 section{padding:100px 20px;max-width:1100px;margin:auto}
 h2{
+    margin-bottom:20px;
+    color:#00c3ff;
 font-family:'Orbitron',sans-serif;
 color:#00e0ff;margin-bottom:20px
 }
 
+/* CARDS */
 .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
 display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px
 }
+
 .card{
+    background:#111;
+    padding:20px;
+    border-radius:15px;
+    transition:0.3s;
 background:rgba(255,255,255,0.05);
 padding:25px;
 border-radius:20px;
 backdrop-filter:blur(12px);
 transition:.4s;
 }
+
 .card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px #00c3ff;
 transform:translateY(-10px) scale(1.05);
 box-shadow:0 0 30px #00c3ff;
 }
 
+/* BOTONES */
+.btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 20px;
+    background:#00c3ff;
+    color:black;
+    text-decoration:none;
+    border-radius:8px;
 /* CHAT BOX */
 .chat{
 position:fixed;
@@ -104,102 +177,122 @@ border-radius:15px;
 padding:15px;
 box-shadow:0 0 20px #00c3ff;
 }
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#05050a;
 .chat input{
 width:100%;padding:10px;margin-top:10px;border:none;border-radius:8px
 }
 
 footer{text-align:center;padding:20px;background:#05050a;opacity:.7}
-h2{font-family:'Orbitron';color:#00e0ff;margin-bottom:20px}
-
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:rgba(255,255,255,0.05);padding:20px;border-radius:15px;transition:.3s}
-.card:hover{transform:scale(1.05);box-shadow:0 0 25px #00c3ff}
-.card a{color:white;text-decoration:none}
-
-/* CHAT */
-.chat{position:fixed;bottom:20px;right:20px;width:320px;background:#111;border-radius:15px;box-shadow:0 0 20px #00c3ff;overflow:hidden}
-.chat-header{background:#00c3ff;padding:10px;color:black;font-weight:bold}
-.chat-body{height:220px;overflow-y:auto;padding:10px;font-size:14px}
-.chat-input{display:flex}
-.chat-input input{flex:1;padding:10px;border:none}
-.chat-input button{padding:10px;border:none;background:#00c3ff}
-
-footer{text-align:center;padding:20px;background:#05050a}
 </style>
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <canvas id="bg"></canvas>
 
 <nav>
+    <div><strong>Profe Nelson IA</strong></div>
+    <div>
+        <a href="#inicio">Inicio</a>
+        <a href="#ia">IA</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#contacto">Contacto</a>
+    </div>
 <div><strong>Profe Nelson IA</strong></div>
 <div>
 <a href="#inicio">Inicio</a>
 <a href="#ia">IA</a>
 <a href="#recursos">Recursos</a>
 <a href="#contacto">Contacto</a>
-<a href="#cursos">Cursos</a>
 </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero" id="inicio">
+    <div>
+        <h1>Aprende Inteligencia Artificial Fácil</h1>
+        <p>Para docentes y estudiantes 🚀</p>
+        <button onclick="scrollToSection('ia')">Empezar</button>
+    </div>
 <div>
 <h1>Domina la Inteligencia Artificial</h1>
 <p>Plataforma educativa del futuro 🚀</p>
 <a href="#ia" class="btn">Explorar</a>
-<h1>Plataforma IA Educativa</h1>
-<p>Aprende IA por niveles 🚀</p>
-<a href="#cursos" class="btn">Entrar a cursos</a>
 </div>
 </section>
 
+<!-- IA -->
 <section id="ia">
+    <h2>🤖 IA para Docentes</h2>
+    <p>
+        Aprende a usar inteligencia artificial para clases, contenido, evaluaciones
+        y automatización educativa.
+    </p>
 <h2>🤖 IA para Docentes</h2>
 <p>Automatiza clases, crea contenido y transforma la educación.</p>
 </section>
 
+<!-- RECURSOS -->
 <section id="recursos">
+    <h2>📚 Recursos Educativos</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Prompts para clases</h3>
+            <p>Listos para usar con IA</p>
+            <a href="#" class="btn">Ver más</a>
+        </div>
+
+        <div class="card">
+            <h3>Actividades</h3>
+            <p>Guías listas para estudiantes</p>
+            <a href="#" class="btn">Ver más</a>
+        </div>
+
+        <div class="card">
+            <h3>Automatización</h3>
+            <p>Optimiza tu tiempo como docente</p>
+            <a href="#" class="btn">Ver más</a>
+        </div>
+    </div>
 <h2>📚 Recursos</h2>
-<section id="cursos">
-<h2>🎓 Cursos por grado</h2>
 <div class="cards">
 <div class="card"><h3>Prompts</h3><p>Listos para usar</p></div>
 <div class="card"><h3>Guías</h3><p>Material práctico</p></div>
 <div class="card"><h3>Automatización</h3><p>Ahorra tiempo</p></div>
-<div class="card"><a href="grado6.html">Grado 6°</a></div>
-<div class="card"><a href="grado7.html">Grado 7°</a></div>
-<div class="card"><a href="grado8.html">Grado 8°</a></div>
-<div class="card"><a href="grado9.html">Grado 9°</a></div>
-<div class="card"><a href="grado10.html">Grado 10°</a></div>
-<div class="card"><a href="grado11.html">Grado 11°</a></div>
 </div>
 </section>
 
+<!-- CONTACTO -->
 <section id="contacto">
+    <h2>📩 Contacto</h2>
+    <p>¿Quieres aprender más o colaborar?</p>
+    <a class="btn" href="#">Escríbeme</a>
 <h2>📩 Contacto</h2>
 <a class="btn" href="#">Escríbeme</a>
 </section>
 
-<!-- CHAT REAL (SIMULADO LISTO PARA API) -->
+<!-- FOOTER -->
 <div class="chat">
 <strong>Asistente IA</strong>
 <input placeholder="Pregunta algo...">
-<div class="chat-header">🤖 Asistente IA</div>
-<div class="chat-body" id="chatBody"></div>
-<div class="chat-input">
-<input id="chatInput" placeholder="Pregunta algo...">
-<button onclick="sendMessage()">➤</button>
-</div>
 </div>
 
 <footer>
+    <p>© 2026 El Profe Nelson IA</p>
 <p>© 2026 El Profe Nelson IA</p>
 </footer>
 
 <script>
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
 // partículas
-// PARTICLES
 const canvas=document.getElementById('bg');
 const ctx=canvas.getContext('2d');
 canvas.width=window.innerWidth;
@@ -209,9 +302,6 @@ let particles=[];
 for(let i=0;i<80;i++){
 particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2})
 }
-for(let i=0;i<60;i++){particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2})}
-function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#00c3ff';particles.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();p.y+=0.3;if(p.y>canvas.height)p.y=0});requestAnimationFrame(draw)}
-draw();
 
 function draw(){
 ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -224,24 +314,10 @@ p.y+=0.3;
 if(p.y>canvas.height)p.y=0;
 });
 requestAnimationFrame(draw);
-// CHAT (LISTO PARA API REAL)
-async function sendMessage(){
-let input=document.getElementById('chatInput');
-let body=document.getElementById('chatBody');
-let userMsg=input.value;
-if(!userMsg)return;
-body.innerHTML+=`<p><b>Tú:</b> ${userMsg}</p>`;
-input.value="";
-body.scrollTop=body.scrollHeight;
-
-// RESPUESTA SIMULADA (AQUÍ VA API REAL)
-let respuesta="(Conecta aquí una API de IA para respuestas reales)";
-
-body.innerHTML+=`<p><b>IA:</b> ${respuesta}</p>`;
-body.scrollTop=body.scrollHeight;
 }
 draw();
 </script>
 
 </body>
+</html>
 </html>
