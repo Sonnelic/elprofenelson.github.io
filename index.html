@@ -21,30 +21,39 @@ body{
     overflow-x:hidden;
 }
 
-/* FONDO CIRCUITOS */
+/* RED NEURONAL CANVAS */
+#network{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-2;
+}
+
+/* CIRCUITOS */
 body::before{
     content:"";
     position:fixed;
     width:200%;
     height:200%;
     background-image:
-    linear-gradient(#4b5cff33 1px, transparent 1px),
-    linear-gradient(90deg, #4b5cff33 1px, transparent 1px);
-    background-size:40px 40px;
-    animation: moveGrid 20s linear infinite;
+    linear-gradient(#4b5cff22 1px, transparent 1px),
+    linear-gradient(90deg, #4b5cff22 1px, transparent 1px);
+    background-size:50px 50px;
+    animation: moveGrid 25s linear infinite;
     z-index:-1;
 }
 
 @keyframes moveGrid{
     0%{transform:translate(0,0);}
-    100%{transform:translate(-40px,-40px);}
+    100%{transform:translate(-50px,-50px);}
 }
 
-/* NAVBAR */
+/* NAV */
 nav{
     position:fixed;
     width:100%;
-    top:0;
     background:rgba(0,0,0,0.7);
     backdrop-filter:blur(12px);
     padding:15px;
@@ -57,12 +66,11 @@ nav a{
     color:white;
     text-decoration:none;
     margin:0 10px;
-    transition:0.3s;
 }
 
 nav a:hover{
     color:#9aa7ff;
-    text-shadow:0 0 12px #9aa7ff;
+    text-shadow:0 0 10px #9aa7ff;
 }
 
 /* HERO */
@@ -85,30 +93,18 @@ nav a:hover{
 
 .hero h1{
     font-size:3rem;
-    margin-bottom:20px;
     text-shadow:0 0 25px #3a4dff;
 }
 
-.hero p{
-    margin-bottom:20px;
-    opacity:0.85;
-}
-
 .hero button{
+    margin-top:20px;
     padding:15px 30px;
     border:none;
     background:#3a4dff;
     color:white;
-    font-weight:bold;
-    cursor:pointer;
     border-radius:12px;
-    transition:0.3s;
     box-shadow:0 0 20px #3a4dff;
-}
-
-.hero button:hover{
-    transform:scale(1.1);
-    box-shadow:0 0 40px #3a4dff;
+    cursor:pointer;
 }
 
 /* SECCIONES */
@@ -119,7 +115,6 @@ section{
 }
 
 h2{
-    margin-bottom:20px;
     color:#9aa7ff;
     text-shadow:0 0 10px #9aa7ff;
 }
@@ -138,41 +133,11 @@ h2{
     transition:0.4s;
     backdrop-filter:blur(10px);
     border:1px solid rgba(255,255,255,0.08);
-    position:relative;
-}
-
-.card::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:20px;
-    box-shadow:0 0 20px transparent;
-    transition:0.4s;
-}
-
-.card:hover::after{
-    box-shadow:0 0 25px #3a4dff;
 }
 
 .card:hover{
-    transform:translateY(-10px) scale(1.03);
-}
-
-/* BOTONES */
-.btn{
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 20px;
-    background:#3a4dff;
-    color:white;
-    text-decoration:none;
-    border-radius:10px;
-    box-shadow:0 0 15px #3a4dff;
-    transition:0.3s;
-}
-
-.btn:hover{
-    box-shadow:0 0 30px #3a4dff;
+    transform:translateY(-10px);
+    box-shadow:0 0 25px #3a4dff;
 }
 
 /* SCROLL */
@@ -187,7 +152,6 @@ h2{
     transform:translateY(0);
 }
 
-/* FOOTER */
 footer{
     text-align:center;
     padding:30px;
@@ -198,29 +162,28 @@ footer{
 
 <body>
 
+<canvas id="network"></canvas>
+
 <nav>
     <div><strong>Profe Nelson IA</strong></div>
     <div>
         <a href="#inicio">Inicio</a>
         <a href="#ia">IA</a>
         <a href="#recursos">Recursos</a>
-        <a href="#contacto">Contacto</a>
     </div>
 </nav>
 
 <section class="hero" id="inicio">
     <div>
-        <h1>Inteligencia Artificial Futurista</h1>
-        <p>Educación + Tecnología + Futuro 🚀</p>
-        <button onclick="scrollToSection('ia')">Comenzar</button>
+        <h1>Red Neuronal Activa</h1>
+        <p>Educación + IA + Futuro 🚀</p>
+        <button onclick="scrollToSection('ia')">Entrar</button>
     </div>
 </section>
 
 <section id="ia" class="fade">
     <h2>🤖 IA para Docentes</h2>
-    <p>
-        Lleva tus clases al siguiente nivel con herramientas de inteligencia artificial.
-    </p>
+    <p>Transforma tu enseñanza con inteligencia artificial.</p>
 </section>
 
 <section id="recursos" class="fade">
@@ -228,47 +191,94 @@ footer{
     <div class="cards">
         <div class="card">
             <h3>Prompts</h3>
-            <p>IA lista para usar</p>
-            <a href="#" class="btn">Ver</a>
         </div>
-
         <div class="card">
-            <h3>Actividades</h3>
-            <p>Material educativo</p>
-            <a href="#" class="btn">Ver</a>
+            <h3>Clases IA</h3>
         </div>
-
         <div class="card">
             <h3>Automatización</h3>
-            <p>Ahorra tiempo</p>
-            <a href="#" class="btn">Ver</a>
         </div>
     </div>
 </section>
 
-<section id="contacto" class="fade">
-    <h2>📩 Contacto</h2>
-    <a class="btn" href="#">Escríbeme</a>
-</section>
-
 <footer>
-    <p>© 2026 El Profe Nelson IA</p>
+    <p>© 2026 Profe Nelson IA</p>
 </footer>
 
 <script>
+// SCROLL
 function scrollToSection(id){
     document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
+// ANIMACIÓN SCROLL
 const faders = document.querySelectorAll('.fade');
-
 window.addEventListener('scroll', () => {
     faders.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if(top < window.innerHeight - 100){
+        if(el.getBoundingClientRect().top < window.innerHeight - 100){
             el.classList.add('show');
         }
     });
+});
+
+// RED NEURONAL
+const canvas = document.getElementById("network");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let nodes = [];
+
+for(let i=0;i<80;i++){
+    nodes.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        vx: (Math.random()-0.5)*1,
+        vy: (Math.random()-0.5)*1
+    });
+}
+
+function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    nodes.forEach(n=>{
+        n.x += n.vx;
+        n.y += n.vy;
+
+        if(n.x<0||n.x>canvas.width) n.vx*=-1;
+        if(n.y<0||n.y>canvas.height) n.vy*=-1;
+
+        ctx.beginPath();
+        ctx.arc(n.x,n.y,2,0,Math.PI*2);
+        ctx.fillStyle="#4b5cff";
+        ctx.fill();
+    });
+
+    for(let i=0;i<nodes.length;i++){
+        for(let j=i+1;j<nodes.length;j++){
+            let dx = nodes[i].x - nodes[j].x;
+            let dy = nodes[i].y - nodes[j].y;
+            let dist = Math.sqrt(dx*dx + dy*dy);
+
+            if(dist < 120){
+                ctx.beginPath();
+                ctx.moveTo(nodes[i].x,nodes[i].y);
+                ctx.lineTo(nodes[j].x,nodes[j].y);
+                ctx.strokeStyle="rgba(75,92,255,0.2)";
+                ctx.stroke();
+            }
+        }
+    }
+
+    requestAnimationFrame(draw);
+}
+
+draw();
+
+window.addEventListener("resize",()=>{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 });
 </script>
 
