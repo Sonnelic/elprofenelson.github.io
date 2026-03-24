@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Profe Nelson IA</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#0a0a0f;
+    color:white;
+    scroll-behavior:smooth;
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:rgba(0,0,0,0.7);
+    backdrop-filter:blur(10px);
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    z-index:1000;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 10px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#00c3ff;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(135deg,#0a0a0f,#1a1a40);
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.hero button{
+    padding:15px 30px;
+    border:none;
+    background:#00c3ff;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    border-radius:10px;
+    transition:0.3s;
+}
+
+.hero button:hover{
+    transform:scale(1.1);
+}
+
+/* SECCIONES */
+section{
+    padding:80px 20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+h2{
+    margin-bottom:20px;
+    color:#00c3ff;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#111;
+    padding:20px;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 20px #00c3ff;
+}
+
+/* BOTONES */
+.btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 20px;
+    background:#00c3ff;
+    color:black;
+    text-decoration:none;
+    border-radius:8px;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#05050a;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div><strong>Profe Nelson IA</strong></div>
+    <div>
+        <a href="#inicio">Inicio</a>
+        <a href="#ia">IA</a>
+        <a href="#recursos">Recursos</a>
+        <a href="#contacto">Contacto</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+    <div>
+        <h1>Aprende Inteligencia Artificial Fácil</h1>
+        <p>Para docentes y estudiantes 🚀</p>
+        <button onclick="scrollToSection('ia')">Empezar</button>
+    </div>
+</section>
+
+<!-- IA -->
+<section id="ia">
+    <h2>🤖 IA para Docentes</h2>
+    <p>
+        Aprende a usar inteligencia artificial para clases, contenido, evaluaciones
+        y automatización educativa.
+    </p>
+</section>
+
+<!-- RECURSOS -->
+<section id="recursos">
+    <h2>📚 Recursos Educativos</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Prompts para clases</h3>
+            <p>Listos para usar con IA</p>
+            <a href="#" class="btn">Ver más</a>
+        </div>
+
+        <div class="card">
+            <h3>Actividades</h3>
+            <p>Guías listas para estudiantes</p>
+            <a href="#" class="btn">Ver más</a>
+        </div>
+
+        <div class="card">
+            <h3>Automatización</h3>
+            <p>Optimiza tu tiempo como docente</p>
+            <a href="#" class="btn">Ver más</a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+    <h2>📩 Contacto</h2>
+    <p>¿Quieres aprender más o colaborar?</p>
+    <a class="btn" href="#">Escríbeme</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 El Profe Nelson IA</p>
+</footer>
+
+<script>
+function scrollToSection(id){
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
