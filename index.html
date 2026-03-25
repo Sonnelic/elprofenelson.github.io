@@ -119,11 +119,19 @@ h2{
 }
 
 .card{
-    background:rgba(255,255,255,0.03);
-    padding:20px;
-    border-radius:15px;
-    transition:0.3s;
-    border:1px solid rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 0 10px rgba(75,92,255,0.2),
+        inset 0 0 10px rgba(255,255,255,0.05);
+
+    transition: 0.4s;
+    position: relative;
 }
 
 .card:hover{
